@@ -25,8 +25,7 @@ public class Events {
     @Column(length = 14) private String updatedAt;
     @Column(length = 14) private String deletedAt;
 
-    // fk
-    @Column (name = "USER_ID") private Integer userId;
+    @Column (name = "USER_ID") private String userId; // fk
 
 
     @PrePersist
@@ -38,13 +37,17 @@ public class Events {
 
     protected Events() {}
 
-    private Events(String title, String eventAt) {
+    private Events(String title, String memo, String eventAt) {
         this.title = title;
+        this.memo = memo;
         this.eventAt = eventAt;
+        this.alertYn = "Y";
+        this.completeYn = "N";
+        this.userId = "sayya";
     }
 
-    public static Events of(String title, String eventAt) {
-        return new Events(title, eventAt);
+    public static Events of(String title, String memo, String eventAt) {
+        return new Events(title, memo, eventAt);
     }
 
 }
