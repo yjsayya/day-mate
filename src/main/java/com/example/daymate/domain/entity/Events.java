@@ -16,6 +16,7 @@ public class Events {
     private Integer id;
 
     @Setter @Column(length = 200, nullable = false) private String title;
+    @Setter @Column(length = 300) private String memo;
     @Setter @Column(length = 14, nullable = false) private String eventAt;
 
     @Column(columnDefinition = "VARCHAR(1) NOT NULL DEFAULT('N') ") private String completeYn;
