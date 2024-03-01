@@ -19,9 +19,11 @@ public class EventsService {
     /**
      * events 리스트 가져오기
      */
-    public List<EventsResponseDto> getEventsList(String createdAt) {
-        // 일단 뿌려야하지 않나?
-        List<Events> eventsList = eventsRepository.selectListsOrderByCreatedAt(createdAt);
+    public List<EventsResponseDto> getEventsList(String eventAt) {
+        System.out.println("service");
+        List<Events> eventsList = eventsRepository.selectListsOrderByCreatedAt(eventAt);
+
+        System.out.println(eventsList.toString());
 
         return eventsList.stream()
                 .map(EventsResponseDto::from)
